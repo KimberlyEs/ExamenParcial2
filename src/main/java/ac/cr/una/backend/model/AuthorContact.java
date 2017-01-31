@@ -5,6 +5,7 @@
  */
 package ac.cr.una.backend.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -26,10 +27,10 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "authorcontact", catalog = "progra3_exa2", uniqueConstraints = {
     @UniqueConstraint(columnNames = "id_authorcontact")})
-public class AuthorContact {
+public class AuthorContact implements Serializable {
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "id_authorcontact")
+    @Column(name = "id_authorcontact", unique = true, nullable = false)
     private int idAuthorContact;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

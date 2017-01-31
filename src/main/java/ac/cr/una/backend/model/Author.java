@@ -5,6 +5,7 @@
  */
 package ac.cr.una.backend.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +22,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "author", catalog = "progra3_exa2", uniqueConstraints = {
     @UniqueConstraint(columnNames = "id_author")})
-public class Author {
+public class Author implements Serializable {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id_author", unique = true, nullable = false)

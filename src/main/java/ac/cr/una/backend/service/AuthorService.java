@@ -1,6 +1,6 @@
+package ac.cr.una.backend.service;
 
-package ac.cr.una.backend.dao;
-
+import ac.cr.una.backend.model.Author;
 import ac.cr.una.backend.model.AuthorContact;
 import java.util.List;
 
@@ -10,8 +10,15 @@ import java.util.List;
  */
 
 
-public interface AuthorContactDAO {
-
+public interface AuthorService {
+    
+    /**
+     *
+     * @param name
+     * @return
+     */
+    public Author findByName(String name);
+     
     /**
      *
      * @return

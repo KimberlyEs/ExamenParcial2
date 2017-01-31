@@ -30,7 +30,7 @@ import javax.persistence.UniqueConstraint;
 public class Book {
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "id_book")
+    @Column(name = "id_book", unique = true, nullable = false)
     private int idBook;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
