@@ -23,6 +23,7 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "author", catalog = "progra3_exa2", uniqueConstraints = {
     @UniqueConstraint(columnNames = "id_author")})
 public class Author implements Serializable {
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id_author", unique = true, nullable = false)
@@ -111,6 +112,5 @@ public class Author implements Serializable {
     public String toString() {
         return "Author{" + "idAuthor=" + idAuthor + ", name=" + name + '}';
     }
-    
-    
+
 }

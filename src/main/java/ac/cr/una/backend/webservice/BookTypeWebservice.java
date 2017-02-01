@@ -25,19 +25,26 @@ import javax.ws.rs.core.UriInfo;
  *
  * @author Kimberly
  */
-
 @Path("booktypes")
 public class BookTypeWebservice {
+
     private BookTypeDAO bookTypeDAO;
     private BookTypeService bookTypeService;
-    
+
     @Context
     private UriInfo context;
 
+    /**
+     *
+     */
     public BookTypeWebservice() {
     }
-    
-    
+
+    /**
+     *
+     * @param name
+     * @return
+     */
     @GET
     @Path("/{name}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -47,10 +54,14 @@ public class BookTypeWebservice {
         bookTypeService = new BookTypeServiceImpl(bookTypeDAO);
 
         type = bookTypeService.findByName(name);
-        
+
         return type;
     }
-    
+
+    /**
+     *
+     * @return
+     */
     @DELETE
     @Path("/")
     public boolean deleteAll() {
@@ -62,7 +73,12 @@ public class BookTypeWebservice {
 
         return result;
     }
-    
+
+    /**
+     *
+     * @param bookType
+     * @return
+     */
     @POST
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)

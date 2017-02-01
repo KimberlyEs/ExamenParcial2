@@ -8,16 +8,14 @@ import org.hibernate.Session;
  *
  * @author Kimberly
  */
+public class AuthorDAOImpl implements AuthorDAO {
 
-
-public class AuthorDAOImpl implements AuthorDAO{
-
-  private final Session session = HibernateUtil.getSessionFactory().openSession();
+    private final Session session = HibernateUtil.getSessionFactory().openSession();
 
     @Override
     public Author findByName(String name) {
         Author author = null;
-        
+
         Query query = session.createQuery("from Author where name = :name ");
         query.setParameter("name", name);
 
@@ -27,5 +25,5 @@ public class AuthorDAOImpl implements AuthorDAO{
 
         return author;
     }
-    
+
 }

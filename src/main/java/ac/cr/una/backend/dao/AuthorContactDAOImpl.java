@@ -15,11 +15,11 @@ public class AuthorContactDAOImpl implements AuthorContactDAO {
 
     @Override
     public boolean deleteAll() {
-      boolean status = false;
+        boolean status = false;
         List<AuthorContact> authorCList = new ArrayList<>();
         session.beginTransaction();
         authorCList = session.createCriteria(AuthorContact.class).list();
-        for(Object a : authorCList){
+        for (Object a : authorCList) {
             session.delete(a);
             status = true;
         }
@@ -28,13 +28,13 @@ public class AuthorContactDAOImpl implements AuthorContactDAO {
     }
 
     @Override
-     public AuthorContact createAuthorContact(AuthorContact authorContact){
+    public AuthorContact createAuthorContact(AuthorContact authorContact) {
         session.beginTransaction();
         session.save(authorContact);
         session.getTransaction().commit();
 
-        return authorContact; 
-     }
+        return authorContact;
+    }
 
     @Override
     public List<AuthorContact> findAll() {

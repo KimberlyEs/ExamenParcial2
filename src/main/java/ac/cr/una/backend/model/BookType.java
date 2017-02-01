@@ -19,11 +19,11 @@ import javax.persistence.UniqueConstraint;
  *
  * @author Kimberly
  */
-
 @Entity
 @Table(name = "booktype", catalog = "progra3_exa2", uniqueConstraints = {
     @UniqueConstraint(columnNames = "id_type")})
 public class BookType implements Serializable {
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id_type", unique = true, nullable = false)
@@ -112,6 +112,5 @@ public class BookType implements Serializable {
     public String toString() {
         return "BookType{" + "idType=" + idType + ", type=" + type + '}';
     }
-    
-    
+
 }

@@ -6,7 +6,6 @@
 package ac.cr.una.backend.dao;
 
 import ac.cr.una.backend.model.Book;
-import ac.cr.una.backend.model.BookType;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
@@ -15,17 +14,17 @@ import org.hibernate.Session;
  *
  * @author Kimberly
  */
-public class BookDAOImpl implements BookDAO{
-    
+public class BookDAOImpl implements BookDAO {
+
     private final Session session = HibernateUtil.getSessionFactory().openSession();
-    
+
     @Override
     public boolean deleteAll() {
         boolean status = false;
         List<Book> list = new ArrayList<>();
         session.beginTransaction();
         list = session.createCriteria(Book.class).list();
-        for(Object book : list){
+        for (Object book : list) {
             session.delete(book);
             status = true;
         }
@@ -35,7 +34,7 @@ public class BookDAOImpl implements BookDAO{
 
     @Override
     public Book save(Book book) {
-         session.beginTransaction();
+        session.beginTransaction();
         session.save(book);
         session.getTransaction().commit();
 
@@ -49,8 +48,7 @@ public class BookDAOImpl implements BookDAO{
         bList = session.createCriteria(Book.class).list();
 
         return bList;
-        
-       
+
     }
 
 }

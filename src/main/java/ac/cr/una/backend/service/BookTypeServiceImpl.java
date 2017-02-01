@@ -12,29 +12,43 @@ import ac.cr.una.backend.model.BookType;
  *
  * @author Kimberly
  */
-public class BookTypeServiceImpl implements BookTypeService{
+public class BookTypeServiceImpl implements BookTypeService {
 
     private BookTypeDAO authorDAO;
 
+    /**
+     *
+     */
     public BookTypeServiceImpl() {
     }
 
+    /**
+     *
+     * @param authorDAO
+     */
     public BookTypeServiceImpl(BookTypeDAO authorDAO) {
         this.authorDAO = authorDAO;
     }
 
+    /**
+     *
+     * @return
+     */
     public BookTypeDAO getAuthorDAO() {
         return authorDAO;
     }
 
+    /**
+     *
+     * @param authorDAO
+     */
     public void setAuthorDAO(BookTypeDAO authorDAO) {
         this.authorDAO = authorDAO;
     }
-  
-    
+
     @Override
     public boolean deleteAll() {
-       return authorDAO.deleteAll();
+        return authorDAO.deleteAll();
     }
 
     @Override
@@ -46,5 +60,5 @@ public class BookTypeServiceImpl implements BookTypeService{
     public BookType save(BookType bookType) {
         return authorDAO.save(bookType);
     }
-    
+
 }

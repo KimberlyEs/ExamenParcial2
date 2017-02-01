@@ -14,19 +14,24 @@ import java.util.List;
  *
  * @author Kimberly
  */
-public class BookServiceImpl implements BookService{
+public class BookServiceImpl implements BookService {
 
     private BookDAO bookDao;
 
+    /**
+     *
+     */
     public BookServiceImpl() {
     }
 
+    /**
+     *
+     * @param bookDao
+     */
     public BookServiceImpl(BookDAO bookDao) {
         this.bookDao = bookDao;
     }
 
-    
-    
     @Override
     public boolean deleteAll() {
         return bookDao.deleteAll();
@@ -42,10 +47,18 @@ public class BookServiceImpl implements BookService{
         return bookDao.findAll();
     }
 
+    /**
+     *
+     * @return
+     */
     public BookDAO getBookDao() {
         return bookDao;
     }
 
+    /**
+     *
+     * @param bookDao
+     */
     public void setBookDao(BookDAO bookDao) {
         this.bookDao = bookDao;
     }
@@ -54,16 +67,14 @@ public class BookServiceImpl implements BookService{
     public float totalPriceAll() {
         float total = 0;
         List<Book> list = new ArrayList<>();
-        
+
         list = bookDao.findAll();
-        for(Book b : list){
-            total+= b.getPrice();
+        for (Book b : list) {
+            total += b.getPrice();
         }
-        
+
         return total;
-                
+
     }
-    
-    
-    
+
 }

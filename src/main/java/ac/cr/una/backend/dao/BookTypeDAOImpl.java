@@ -15,17 +15,17 @@ import org.hibernate.Session;
  *
  * @author Kimberly
  */
-public class BookTypeDAOImpl implements BookTypeDAO{
+public class BookTypeDAOImpl implements BookTypeDAO {
 
-     private final Session session = HibernateUtil.getSessionFactory().openSession();
-     
+    private final Session session = HibernateUtil.getSessionFactory().openSession();
+
     @Override
     public boolean deleteAll() {
         boolean status = false;
         List<BookType> bookList = new ArrayList<>();
         session.beginTransaction();
         bookList = session.createCriteria(BookType.class).list();
-        for(Object a : bookList){
+        for (Object a : bookList) {
             session.delete(a);
             status = true;
         }
@@ -35,8 +35,8 @@ public class BookTypeDAOImpl implements BookTypeDAO{
 
     @Override
     public BookType findByName(String type) {
-       BookType bookType = null;
-        
+        BookType bookType = null;
+
         Query query = session.createQuery("from BookType where type = :type");
         query.setParameter("type", type);
 
@@ -55,5 +55,5 @@ public class BookTypeDAOImpl implements BookTypeDAO{
 
         return bookType;
     }
-    
+
 }

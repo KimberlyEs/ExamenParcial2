@@ -7,8 +7,6 @@ import java.util.List;
  *
  * @author Kimberly
  */
-
-
 public interface AuthorContactDAO {
 
     /**

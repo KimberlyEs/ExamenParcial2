@@ -12,20 +12,20 @@ import ac.cr.una.backend.model.BookType;
  * @author Kimberly
  */
 public interface BookTypeService {
-    
-     /**
+
+    /**
      *
      * @return
      */
     boolean deleteAll();
-     
+
     /**
      *
      * @param name
      * @return
      */
     public BookType findByName(String name);
-      
+
     /**
      *
      * @param bookType

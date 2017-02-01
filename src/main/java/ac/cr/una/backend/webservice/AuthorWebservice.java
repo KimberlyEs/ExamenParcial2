@@ -1,4 +1,3 @@
-
 package ac.cr.una.backend.webservice;
 
 import ac.cr.una.backend.dao.AuthorContactDAO;
@@ -25,21 +24,27 @@ import javax.ws.rs.core.UriInfo;
  *
  * @author Kimberly
  */
-
 @Path("authors")
 public class AuthorWebservice {
-    
+
     private AuthorDAO authorDAO;
     private AuthorContactDAO authorContactDAO;
     private AuthorService authorService;
-    
+
     @Context
     private UriInfo context;
 
+    /**
+     *
+     */
     public AuthorWebservice() {
     }
-    
-    
+
+    /**
+     *
+     * @param name
+     * @return
+     */
     @GET
     @Path("/{name}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -52,7 +57,11 @@ public class AuthorWebservice {
 
         return author;
     }
-    
+
+    /**
+     *
+     * @return
+     */
     @DELETE
     @Path("/")
     public boolean deleteAuthorContact() {
@@ -64,7 +73,12 @@ public class AuthorWebservice {
 
         return result;
     }
-    
+
+    /**
+     *
+     * @param authorContact
+     * @return
+     */
     @POST
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -78,7 +92,11 @@ public class AuthorWebservice {
 
         return authorContact;
     }
-    
+
+    /**
+     *
+     * @return
+     */
     @GET
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)

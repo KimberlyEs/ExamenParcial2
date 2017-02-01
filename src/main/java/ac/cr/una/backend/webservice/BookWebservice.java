@@ -27,12 +27,17 @@ import javax.ws.rs.core.UriInfo;
  */
 @Path("books")
 public class BookWebservice {
+
     private BookDAO dao;
     private BookService service;
-    
+
     @Context
     private UriInfo context;
-    
+
+    /**
+     *
+     * @return
+     */
     @DELETE
     @Path("/")
     public boolean deleteBook() {
@@ -43,7 +48,12 @@ public class BookWebservice {
 
         return result;
     }
-    
+
+    /**
+     *
+     * @param b
+     * @return
+     */
     @POST
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -57,12 +67,16 @@ public class BookWebservice {
 
         return b;
     }
-    
+
+    /**
+     *
+     * @return
+     */
     @GET
     @Path("/totalprice")
     @Produces(MediaType.APPLICATION_JSON)
     public float getTotalPrice() {
-        float result=0;
+        float result = 0;
         dao = new BookDAOImpl();
         service = new BookServiceImpl(dao);
 
@@ -71,5 +85,21 @@ public class BookWebservice {
         return result;
     }
     
-    
+    /**
+     *
+     * @return
+     */
+    @GET
+    @Path("/")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Book> getAllBooks() {
+        List<Book> bList = null;
+        dao = new BookDAOImpl();
+        service = new BookServiceImpl(dao);
+
+        bList = service.findAll();
+
+        return bList;
+    }
+
 }

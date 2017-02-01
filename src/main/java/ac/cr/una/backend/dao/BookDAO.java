@@ -13,8 +13,23 @@ import java.util.List;
  * @author Kimberly
  */
 public interface BookDAO {
-    
-      boolean deleteAll();
-      public Book save(Book book);
-      public List<Book> findAll();
+
+    /**
+     *
+     * @return
+     */
+    boolean deleteAll();
+
+    /**
+     *
+     * @param book
+     * @return
+     */
+    public Book save(Book book);
+
+    /**
+     *
+     * @return
+     */
+    public List<Book> findAll();
 }
