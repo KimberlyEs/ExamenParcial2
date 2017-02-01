@@ -5,7 +5,6 @@
  */
 package ac.cr.una.backend.dao;
 
-import ac.cr.una.backend.model.Author;
 import ac.cr.una.backend.model.BookType;
 import java.util.ArrayList;
 import java.util.List;

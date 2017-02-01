@@ -5,6 +5,7 @@
  */
 package ac.cr.una.backend.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Objects;
 import javax.persistence.CascadeType;
@@ -17,22 +18,23 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author Kimberly
  */
-
 @Entity
 @Table(name = "book", catalog = "progra3_exa2", uniqueConstraints = {
     @UniqueConstraint(columnNames = "id_book")})
-public class Book {
+public class Book implements Serializable {
+    
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id_book", unique = true, nullable = false)
     private int idBook;
-
+    
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_author", nullable = false)
     private Author idAuthor;
@@ -43,22 +45,22 @@ public class Book {
     
     @Column(name = "name", unique = false, nullable = false)
     private String name;
-
-    @Column(name = "daterelease", unique = false, nullable = false)
-    private Calendar dateRelease;
     
-    @Column(name = "price", unique = false, nullable = false)
+    @Column(name = "daterelease", unique = false, nullable = false)
+    private String daterelease;
+    
+     @Column(name = "price", unique = false, nullable = false)
     private float price;
 
     public Book() {
     }
 
-    public Book(int idBook, Author idAuthor, Author idType, String name, Calendar dateRelease, float price) {
+    public Book(int idBook, Author idAuthor, Author idType, String name, String daterelease, float price) {
         this.idBook = idBook;
         this.idAuthor = idAuthor;
         this.idType = idType;
         this.name = name;
-        this.dateRelease = dateRelease;
+        this.daterelease = daterelease;
         this.price = price;
     }
 
@@ -94,12 +96,12 @@ public class Book {
         this.name = name;
     }
 
-    public Calendar getDateRelease() {
-        return dateRelease;
+    public String getDaterelease() {
+        return daterelease;
     }
 
-    public void setDateRelease(Calendar dateRelease) {
-        this.dateRelease = dateRelease;
+    public void setDaterelease(String daterelease) {
+        this.daterelease = daterelease;
     }
 
     public float getPrice() {
@@ -112,13 +114,13 @@ public class Book {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + this.idBook;
-        hash = 59 * hash + Objects.hashCode(this.idAuthor);
-        hash = 59 * hash + Objects.hashCode(this.idType);
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + Objects.hashCode(this.dateRelease);
-        hash = 59 * hash + Float.floatToIntBits(this.price);
+        int hash = 3;
+        hash = 37 * hash + this.idBook;
+        hash = 37 * hash + Objects.hashCode(this.idAuthor);
+        hash = 37 * hash + Objects.hashCode(this.idType);
+        hash = 37 * hash + Objects.hashCode(this.name);
+        hash = 37 * hash + Objects.hashCode(this.daterelease);
+        hash = 37 * hash + Float.floatToIntBits(this.price);
         return hash;
     }
 
@@ -143,13 +145,13 @@ public class Book {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
+        if (!Objects.equals(this.daterelease, other.daterelease)) {
+            return false;
+        }
         if (!Objects.equals(this.idAuthor, other.idAuthor)) {
             return false;
         }
         if (!Objects.equals(this.idType, other.idType)) {
-            return false;
-        }
-        if (!Objects.equals(this.dateRelease, other.dateRelease)) {
             return false;
         }
         return true;
@@ -157,9 +159,10 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" + "idBook=" + idBook + ", idAuthor=" + idAuthor + ", idType=" + idType + ", name=" + name + ", dateRelease=" + dateRelease + ", price=" + price + '}';
+        return "Book{" + "idBook=" + idBook + ", idAuthor=" + idAuthor + ", idType=" + idType + ", name=" + name + ", daterelease=" + daterelease + ", price=" + price + '}';
     }
-    
+     
+     
     
     
 }

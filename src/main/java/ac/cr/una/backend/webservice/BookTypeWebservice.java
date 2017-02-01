@@ -5,14 +5,9 @@
  */
 package ac.cr.una.backend.webservice;
 
-import ac.cr.una.backend.dao.AuthorContactDAOImpl;
-import ac.cr.una.backend.dao.AuthorDAOImpl;
 import ac.cr.una.backend.dao.BookTypeDAO;
 import ac.cr.una.backend.dao.BookTypeDAOImpl;
-import ac.cr.una.backend.model.Author;
-import ac.cr.una.backend.model.AuthorContact;
 import ac.cr.una.backend.model.BookType;
-import ac.cr.una.backend.service.AuthorServiceImpl;
 import ac.cr.una.backend.service.BookTypeService;
 import ac.cr.una.backend.service.BookTypeServiceImpl;
 import javax.ws.rs.Consumes;
