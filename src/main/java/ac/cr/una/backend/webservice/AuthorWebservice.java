@@ -35,6 +35,10 @@ public class AuthorWebservice {
     
     @Context
     private UriInfo context;
+
+    public AuthorWebservice() {
+    }
+    
     
     @GET
     @Path("/{name}")
